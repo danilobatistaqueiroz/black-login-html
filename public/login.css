@@ -206,3 +206,25 @@ select:-webkit-autofill:focus {
   margin-top:15px !important;
   color:aliceblue;
 }
+
+.modal-content {
+  background-color:#36393f;
+  color:white;
+  font-size:15px;
+}
+.modal-header .btn-close{
+  display:none;
+}
+.modal-header {
+  border-bottom:none !important;
+  color:white;
+}
+.modal-body {
+  border-top:none !important;
+  color:white;
+}
+.modal-footer {
+  border-top:none !important;
+  padding-top:0;
+  background-color:#28292e;
+}

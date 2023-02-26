@@ -27,10 +27,10 @@
       <h3>Create an account</h3>
     </div>
     <div class="row label">
-      EMAIL
+      EMAIL OR PHONE NUMBER
     </div>
     <div class="row">
-      <input type="email" class="form-control" id="email" 
+      <input type="email" class="form-control" id="emailphone" 
       value="danilo@gmail.com" minlength="4" 
       oninvalid="this.setCustomValidity('Enter a valid email')" 
       oninput="setCustomValidity('')" required>
@@ -219,14 +219,36 @@
     }
     return yesno;
   }
-  let validationFields = ['password','username','email'];
+  let validationFields = ['password','username','emailphone'];
   let allValidationFields = validationFields.map(f=>document.querySelector('#'+f))
   function send() {
-    allValidationFields.map(v => {
-      if(!v.value) {
-        v.style['box-shadow']='0 0 5px 1px red';
+    if(document.querySelector('#username').value==''){
+      document.querySelector('#username').style['box-shadow']='0 0 5px 1px red';
+      return false;
+    }
+    if(document.querySelector('#password').value==''){
+      document.querySelector('#password').style['box-shadow']='0 0 5px 1px red';
+      return false;
+    }
+    let emailphone = document.querySelector('#emailphone').value;
+    if(emailphone[0]=='+' || emailphone[0]=='(' || /^[\d]+$/.test(emailphone)) {
+      let isphonenum = emailphone.match(/^(\+{0,})(\d{0,})([(]{1}\d{1,3}[)]{0,}){0,}(\s?\d+|\+\d{2,3}\s{1}\d+|\d+){1}[\s|-]?\d+([\s|-]?\d+){1,2}(\s){0,}$/gm);
+      let isnumbers = /^[\d]+$/.test(emailphone)
+      if(isphonenum!=null || isnumbers) 
+        return true
+      else {
+        document.querySelector('#emailphone').style['box-shadow']='0 0 5px 1px red';
+        return false
       }
-    })
+    } else {
+      let isemail = emailphone.match(/^[a-zA-Z.@]/g);
+      if(isemail)
+        return true
+      else {
+        document.querySelector('#emailphone').style['box-shadow']='0 0 5px 1px red';
+        return false
+      }
+    }
     let passOk = weakPassword();
     return passOk;
   }
@@ -234,6 +256,21 @@
     v.addEventListener('focus', e => {
       v.style['box-shadow']='none';
     });
+  });
+  let emailphone = document.querySelector('#emailphone');
+  emailphone.addEventListener('keydown', e => {
+    if(e.key=="Backspace" || e.key=="Delete") {
+      return;
+    }
+    emailphone.value=onChangePhoneNumber(emailphone.value);
+  });
+  emailphone.addEventListener('focusout', e => {
+    let isphonenum = /^[\d+()-.]/g.test(emailphone.value);
+    if (isphonenum) {
+      emailphone.type="text";
+    } else {
+      emailphone.type="email";
+    }
   });
 </script>
 </html>
