@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="icon" type="image/x-icon" href="discord.ico">
+  <link href="register.css" rel="stylesheet" />
+</head>
+
+<body style="background-image:url('./blue.png')">
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+    integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+    integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+    crossorigin="anonymous"></script>
+  <form action="/dashboard.html" method="get" id="registerForm">
+  <div class="container login-box">
+    <div class="row">
+      <h3>Create an account</h3>
+    </div>
+    <div class="row label">
+      EMAIL
+    </div>
+    <div class="row">
+      <input type="email" class="form-control" id="email" 
+      value="danilo@gmail.com" minlength="4" 
+      oninvalid="this.setCustomValidity('Enter a valid email')" 
+      oninput="setCustomValidity('')" required>
+    </div>
+    <div class="row label">
+      USERNAME
+    </div>
+    <div class="row">
+      <input type="text" class="form-control" id="username" 
+      value=""
+      minlength="3" required>
+    </div>
+    <div class="row label">
+      PASSWORD
+    </div>
+    <div class="row">
+      <input type="password" class="form-control" id="password" minlength="5" required>
+      <i class="far fa-eye" id="togglePassword" style="margin-left: -30px; cursor: pointer;"></i>
+      <a href="#" onclick="generatePassword()">generate automatically a password</a>
+    </div>
+    <div class="row label">
+      DATE OF BIRTH
+    </div>
+    <div class="row">
+      <select class="form-select fill-select" aria-label="Default select example">
+        <option class="options" selected>Select</option>
+        <option class="options" value="1">January</option>
+        <option class="options" value="2">February</option>
+        <option class="options" value="3">March</option>
+        <option class="options" value="4">April</option>
+        <option class="options" value="5">May</option>
+        <option class="options" value="6">June</option>
+        <option class="options" value="7">July</option>
+        <option class="options" value="8">August</option>
+        <option class="options" value="9">September</option>
+        <option class="options" value="10">October</option>
+        <option class="options" value="11">November</option>
+        <option class="options" value="12">December</option>
+      </select>
+      <select class="form-select fill-select" aria-label="Default select example">
+        <option selected>Select</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+        <option value="13">13</option>
+        <option value="14">14</option>
+        <option value="15">15</option>
+        <option value="16">16</option>
+        <option value="17">17</option>
+        <option value="18">18</option>
+        <option value="19">19</option>
+        <option value="20">20</option>
+        <option value="21">21</option>
+        <option value="22">22</option>
+        <option value="23">23</option>
+        <option value="24">24</option>
+        <option value="25">25</option>
+        <option value="26">26</option>
+        <option value="27">27</option>
+        <option value="28">28</option>
+        <option value="29">29</option>
+        <option value="30">30</option>
+        <option value="31">31</option>
+      </select>
+      <select id="year" class="form-select" aria-label="Default select example">
+        <option selected>Select</option>
+        <option value="1950">1950</option>
+        <option value="1951">1951</option>
+        <option value="1952">1952</option>
+        <option value="1953">1953</option>
+        <option value="1954">1954</option>
+        <option value="1955">1955</option>
+        <option value="1956">1956</option>
+        <option value="1957">1957</option>
+        <option value="1958">1958</option>
+        <option value="1959">1959</option>
+        <option value="1960">1960</option>
+        <option value="1961">1961</option>
+        <option value="1962">1962</option>
+        <option value="1963">1963</option>
+        <option value="1964">1964</option>
+        <option value="1965">1965</option>
+        <option value="1966">1966</option>
+        <option value="1967">1967</option>
+        <option value="1968">1968</option>
+        <option value="1969">1969</option>
+        <option value="1970">1970</option>
+        <option value="1971">1971</option>
+        <option value="1972">1972</option>
+        <option value="1973">1973</option>
+        <option value="1974">1974</option>
+        <option value="1975">1975</option>
+        <option value="1976">1976</option>
+        <option value="1977">1977</option>
+        <option value="1978">1978</option>
+        <option value="1979">1979</option>
+        <option value="1980">1980</option>
+        <option value="1981">1981</option>
+        <option value="1982">1982</option>
+        <option value="1983">1983</option>
+        <option value="1984">1984</option>
+        <option value="1985">1985</option>
+        <option value="1986">1986</option>
+        <option value="1987">1987</option>
+        <option value="1988">1988</option>
+        <option value="1989">1989</option>
+        <option value="1990">1990</option>
+        <option value="1991">1991</option>
+        <option value="1992">1992</option>
+        <option value="1993">1993</option>
+        <option value="1994">1994</option>
+        <option value="1995">1995</option>
+        <option value="1996">1996</option>
+        <option value="1997">1997</option>
+        <option value="1998">1998</option>
+        <option value="1999">1999</option>
+        <option value="2000">2000</option>
+        <option value="2001">2001</option>
+        <option value="2002">2002</option>
+        <option value="2003">2003</option>
+        <option value="2004">2004</option>
+        <option value="2005">2005</option>
+        <option value="2006">2006</option>
+        <option value="2007">2007</option>
+        <option value="2008">2008</option>
+        <option value="2009">2009</option>
+        <option value="2010">2010</option>
+        <option value="2011">2011</option>
+        <option value="2012">2012</option>
+        <option value="2013">2013</option>
+      </select>
+    </div>
+    <div class="row">
+      <button type="submit" onclick="return send()" class="btn btn-primary">Continue</button>
+    </div>
+    <div class="row">
+      <div class="register"><a href="login.html">Already have an account?</a></div>
+    </div>
+    <div class="row">
+      <div class="terms">By registering, you agree to Lab's <a href="">Terms of Service</a> and <a href="">Privacy Policy</a>.</div>
+    </div>
+  </div>
+  </form>
+</body>
+<script>
+  document.querySelector('#year').addEventListener('mousedown', function(){
+    document.querySelector('#year').value="2000";
+  });
+  function generatePassword() {
+    let randPassword = new Array(22).fill("0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!@#$&*?|%+-_./:;=()[]{}").map(x => (function(chars) { let umax = Math.pow(2, 32), r = new Uint32Array(1), max = umax - (umax % chars.length); do { crypto.getRandomValues(r); } while(r[0] > max); return chars[r[0] % chars.length]; })(x)).join('');
+    console.log(randPassword);
+    document.querySelector('#password').value = randPassword;
+    password.style['box-shadow']='none';
+  }
+  document.querySelector('#togglePassword').addEventListener('click', function (e) {
+    let password = document.querySelector("#password");
+    password.type = password.type === 'password' ? 'text' : 'password';
+    this.classList.toggle('fa-eye-slash');
+  });
+  function weakPassword() {
+    let password = document.querySelector("#password");
+    let yesno = true;
+    if (password.value.length<5) {
+      password.style['box-shadow']='0 0 5px 1px red';
+      return false;
+    }
+    if (password.value.length<15) {
+      yesno = confirm('Your password is too small, the recomendation is at least 15 characters, do you want to continue anyway?')
+    }
+    let isnum = /^\d+$/.test(password.value);
+    if (isnum) {
+      yesno = confirm('Your password contains only numbers, the recomendation is a more strong password containing alphabetic characters numbers and special characters, do you want to continue anyway?')
+    }
+    let isalpha = !/[^a-zA-Z]/.test(password.value);
+    if (isalpha) {
+      yesno = confirm('Your password contains only letters, the recomendation is a more strong password containing alphabetic characters numbers and special characters, do you want to continue anyway?')
+    }
+    return yesno;
+  }
+  let validationFields = ['password','username','email'];
+  let allValidationFields = validationFields.map(f=>document.querySelector('#'+f))
+  function send() {
+    allValidationFields.map(v => {
+      if(!v.value) {
+        v.style['box-shadow']='0 0 5px 1px red';
+      }
+    })
+    let passOk = weakPassword();
+    return passOk;
+  }
+  allValidationFields.map(v => {
+    v.addEventListener('focus', e => {
+      v.style['box-shadow']='none';
+    });
+  });
+</script>
+</html>
